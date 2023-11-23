@@ -17,9 +17,9 @@ public:
 
         auto& to_node = nodes_[to];
         auto& from_node = nodes_[from];
-        auto [key,insert_succ] = to_node.edges_.insert({ from, callback });
+        auto [key,insert_succ] = from_node.edges_.insert({ to, callback });
         if(insert_succ)
-            ++from_node.in_degree_;
+            ++to_node.in_degree_;
     }
 
     bool IsCyclic() {
